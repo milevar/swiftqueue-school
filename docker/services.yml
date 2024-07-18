@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mysql:
+    extends:
+      file: mysql.yml
+      service: mysql
+  php:
+    extends:
+      file: php.yml
+      service: php

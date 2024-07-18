@@ -5,6 +5,7 @@ Web Application to manage a school
 ## TODO
 
 - [x] Git project setup
+- [x] Docker files
 
 ### UI
 
