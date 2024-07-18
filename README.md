@@ -18,8 +18,8 @@ Web Application to manage a school
 - [ ] Homepage
 
 ### DB
-- [ ] Create database schema
-- [ ] Create initial data
+- [x] Create database schema
+- [x] Create initial data
 - [ ] Hash user passwd
 - [ ] start date and end date, update data type
 - [ ] Status table
