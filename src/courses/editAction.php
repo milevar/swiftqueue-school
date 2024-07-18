@@ -1,0 +1,38 @@
+<?php
+// Include the database connection file
+require_once("../common/dbConnection.php");
+
+if (isset($_POST['update'])) {
+    // Escape special characters in a string for use in an SQL statement
+    $id = mysqli_real_escape_string($mysqli, $_POST['id']);
+    $name = mysqli_real_escape_string($mysqli, $_POST['name']);
+    $startDate = mysqli_real_escape_string($mysqli, $_POST['start_date']);
+    $endDate = mysqli_real_escape_string($mysqli, $_POST['end_date']);
+    $status = mysqli_real_escape_string($mysqli, $_POST['status']);
+
+    // Check for empty fields
+    if (empty($name) || empty($startDate) ||  empty($endDate) || empty($status)) {
+        if (empty($name)) {
+            echo "<font color='red'>Name field is empty.</font><br/>";
+        }
+
+        if (empty($startDate)) {
+            echo "<font color='red'>Start Date field is empty.</font><br/>";
+        }
+
+        if (empty($endDate)) {
+            echo "<font color='red'>End Date field is empty.</font><br/>";
+        }
+
+        if (empty($status)) {
+            echo "<font color='red'>Status field is empty.</font><br/>";
+        }
+    } else {
+        // Update the database table
+        $result = mysqli_query($mysqli, "UPDATE courses SET `name` = '$name',  `status` = '$status', `start_date` = '$startDate', `end_date` = '$endDate' WHERE `id` = $id");
+
+        // Display success message
+        echo "<p><font color='green'>Course updated successfully!</p>";
+        echo "<a href='index.php'>Home</a>";
+    }
+}

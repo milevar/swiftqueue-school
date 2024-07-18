@@ -6,10 +6,11 @@ Web Application to manage a school
 
 - [x] Git project setup
 - [x] Docker files
+- [x] CRUD Users
+- [x] CRUD Courses
 
 ### UI
 
-- [ ] CRUD Courses OK
 - [ ] Status Combo box
 - [ ] Filter in courses
 - [ ] Use Boostrap
