@@ -1,40 +1,40 @@
-<html>
-<head>
-    <title>Add Course</title>
-</head>
+<?php
+$title = "Add Course";
+$activePage = "Courses";
+require_once("../common/header.php");
+?>
 
-<body>
-<h2>Add Course</h2>
-<p>
-    <a href="index.php">Home</a>
-</p>
-
-<form action="addAction.php" method="post" name="add">
-    <table width="25%" border="0">
-        <tr>
-            <td>Name</td>
-            <td><input type="text" name="name"></td>
-        </tr>
-
-        <tr>
-            <td>Start Date</td>
-            <td><input type="text" name="start_date"></td>
-        </tr>
-
-        <tr>
-            <td>End Date</td>
-            <td><input type="text" name="end_date"></td>
-        </tr>
-
-        <tr>
-            <td>Status</td>
-            <td><input type="text" name="status"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" name="submit" value="Add"></td>
-        </tr>
-    </table>
-</form>
-</body>
-</html>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6">
+                <form action="addAction.php" method="post" name="add">
+                    <div class="mb-3">
+                        <label for="nameField" class="form-label">Name</label>
+                        <input id="nameField" type="text" name="name" class="form-control">
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="mb-3 col-lg-6">
+                            <label for="starDateField" class="form-label">Start Date</label>
+                            <input id="starDateField" type="datetime-local" name="start_date" class="form-control">
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="endDateField" class="form-label">End Date</label>
+                            <input id="endDateField" type="datetime-local" name="end_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="statusField" class="form-label">Status</label>
+                        <input id="statusField" type="text" name="status" class="form-control">
+                    </div>
+                    <div class="mb-3 row justify-content-md-center">
+                        <div class="mt-4 col-lg-3">
+                            <input type="submit" name="submit" value="Add Course" class="form-control btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php
+require_once("../common/footer.php");
+?>

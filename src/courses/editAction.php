@@ -31,8 +31,8 @@ if (isset($_POST['update'])) {
         // Update the database table
         $result = mysqli_query($mysqli, "UPDATE courses SET `name` = '$name',  `status` = '$status', `start_date` = '$startDate', `end_date` = '$endDate' WHERE `id` = $id");
 
-        // Display success message
-        echo "<p><font color='green'>Course updated successfully!</p>";
-        echo "<a href='index.php'>Home</a>";
+        // Redirect to the main display page
+        header("Location:index.php");
+
     }
 }

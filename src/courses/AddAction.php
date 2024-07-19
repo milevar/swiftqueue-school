@@ -1,11 +1,4 @@
-<html>
-<head>
-    <title>Add Course</title>
-</head>
-
-<body>
 <?php
-// Include the database connection file
 require_once("../common/dbConnection.php");
 
 if (isset($_POST['submit'])) {
@@ -36,16 +29,11 @@ if (isset($_POST['submit'])) {
         // Show link to the previous page
         echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
     } else {
-        // If all the fields are filled (not empty)
-
         // Insert data into database
         $result = mysqli_query($mysqli, "INSERT INTO courses (`name`, `status`, `start_date`, `end_date`) VALUES ('$name', '$status', '$startDate', '$endDate')");
 
-        // Display success message
-        echo "<p><font color='green'>Course added successfully!</p>";
-        echo "<a href='index.php'>Home</a>";
+        // Redirect to the main display page
+        header("Location:index.php");
     }
 }
-?>
-</body>
-</html>
+
