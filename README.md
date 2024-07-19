@@ -11,10 +11,10 @@ Web Application to manage a school
 
 ### UI
 
-- [ ] Status Combo box
+- [ ] Update Status Combo box
 - [ ] Filter in courses
-- [ ] Use Boostrap
-- [ ] Calendar
+- [X] Use Boostrap
+- [X] Calendar
 - [ ] Form Validations
 - [ ] Homepage
 
@@ -23,11 +23,11 @@ Web Application to manage a school
 - [x] Create initial data
 - [ ] Hash user passwd
 - [ ] start date and end date, update data type
-- [ ] Status table
+- [X] Status table
 
 ### Extra
 
-- [ ] Autenticacion
+- [ ] Authentication
 - [ ] Soft Delete ???
 - [ ] ORM ???
 - [ ] Unit Test
