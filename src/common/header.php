@@ -26,9 +26,6 @@
                         <a class="nav-link <?php echo ($activePage == 'Courses') ? "active" : ""; ?>" href="../courses/">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($activePage == 'Instructors') ? "active" : ""; ?>" href="#">Instructors</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link <?php echo ($activePage == 'Users') ? "active" : ""; ?>" href="../users/">Users</a>
                     </li>
                 </ul>
@@ -38,11 +35,13 @@
 
     <div class="d-grid mt-3">
         <h3 class="ps-2 text-body-emphasis"><?php echo $title; ?></h3>
-        <?php if($title != "Courses") { ?>
+        <?php if($title != "Courses" && $title != "Users") { ?>
         <div class="row ps-2">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../courses">Courses</a></li>
+                    <li class="breadcrumb-item">
+                        <a href="../<?php echo strtolower($activePage); ?>"><?php echo $activePage; ?></a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page"><?php echo $title; ?></li>
                 </ol>
             </nav>

@@ -12,39 +12,57 @@ $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id = $id");
 $resultData = mysqli_fetch_assoc($result);
 
 $name = $resultData['name'];
-$startDate = $resultData['email'];
-$status = $resultData['password'];
+$email = $resultData['email'];
+$password = $resultData['password'];
+
+$title = "Edit User";
+$activePage = "Users";
+require_once("../common/header.php");
 ?>
-<html>
-<head>
-    <title>Edit User</title>
-</head>
-
-<body>
-<h2>Edit User</h2>
-<p>
-    <a href="index.php">Home</a>
-</p>
-
-<form name="edit" method="post" action="editAction.php">
-    <table border="0">
-        <tr>
-            <td>Name</td>
-            <td><input type="text" name="name" value="<?php echo $name; ?>"></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input type="text" name="email" value="<?php echo $startDate; ?>"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="text" name="password" value="<?php echo $status; ?>"></td>
-        </tr>
-        <tr>
-            <td><input type="hidden" name="id" value=<?php echo $id; ?>></td>
-            <td><input type="submit" name="update" value="Update"></td>
-        </tr>
-    </table>
-</form>
-</body>
-</html>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-6">
+                <form name="edit" method="post" action="editAction.php">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <div class="mb-3">
+                        <label for="nameField" class="form-label">Name</label>
+                        <input id="nameField"
+                               type="text"
+                               name="name"
+                               value="<?php echo $name; ?>"
+                               class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailField" class="form-label">Email</label>
+                        <input id="emailField"
+                               type="email"
+                               name="email"
+                               value="<?php echo $email; ?>"
+                               class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordField" class="form-label">New Password</label>
+                        <input id="passwordField"
+                               type="password"
+                               name="password"
+                               class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPasswordField" class="form-label">New Confirm Password</label>
+                        <input id="confirmPasswordField"
+                               type="password"
+                               name="confirmPassword"
+                               class="form-control">
+                    </div>
+                    <div class="mb-3 row justify-content-md-center">
+                        <div class="mt-4 col-lg-3">
+                            <input type="submit" name="update" value="Edit User" class="form-control btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php
+require_once("../common/footer.php");
+?>

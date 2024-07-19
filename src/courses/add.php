@@ -3,7 +3,6 @@ $title = "Add Course";
 $activePage = "Courses";
 require_once("../common/header.php");
 ?>
-
     <div class="container">
         <div class="row">
             <div class="col col-lg-6">

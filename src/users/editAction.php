@@ -26,8 +26,7 @@ if (isset($_POST['update'])) {
         // Update the database table
         $result = mysqli_query($mysqli, "UPDATE users SET `name` = '$name', `email` = '$email', `password` = '$password' WHERE `id` = $id");
 
-        // Display success message
-        echo "<p><font color='green'>User updated successfully!</p>";
-        echo "<a href='index.php'>Home</a>";
+        // Redirect to the main display page
+        header("Location:index.php");
     }
 }

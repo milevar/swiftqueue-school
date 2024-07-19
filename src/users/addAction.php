@@ -36,9 +36,8 @@ if (isset($_POST['submit'])) {
         // Insert data into database
         $result = mysqli_query($mysqli, "INSERT INTO users (`name`, `email`, `password`) VALUES ('$name', '$email', '$passwd')");
 
-        // Display success message
-        echo "<p><font color='green'>User added successfully!</p>";
-        echo "<a href='index.php'>Home</a>";
+        // Redirect to the main display page
+        header("Location:index.php");
     }
 }
 ?>
