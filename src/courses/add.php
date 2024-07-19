@@ -1,4 +1,8 @@
 <?php
+require_once("../common/dbConnection.php");
+
+$result = mysqli_query($mysqli, "SELECT * FROM statuses ORDER BY id ASC");
+
 $title = "Add Course";
 $activePage = "Courses";
 require_once("../common/header.php");
@@ -21,9 +25,16 @@ require_once("../common/header.php");
                             <input id="endDateField" type="datetime-local" name="end_date" class="form-control">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="statusField" class="form-label">Status</label>
-                        <input id="statusField" type="text" name="status" class="form-control">
+                    <div class="mb-3 row">
+                        <div class="mb-3 col-lg-6">
+                            <label for="statusField" class="form-label">Status</label>
+                            <select name="status" id="statusField" class="form-select">
+                                <option value="null"></option>
+                                <?php  while ($res = mysqli_fetch_assoc($result)) { ?>
+                                <option value="<?php echo $res['id']; ?>"><?php echo $res['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3 row justify-content-md-center">
                         <div class="mt-4 col-lg-3">

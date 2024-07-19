@@ -7,6 +7,7 @@ $id = $_GET['id'];
 
 // Select data associated with this particular id
 $result = mysqli_query($mysqli, "SELECT * FROM courses WHERE id = $id");
+$statuses = mysqli_query($mysqli, "SELECT * FROM statuses ORDER BY id ASC");
 
 // Fetch the next row of a result set as an associative array
 $resultData = mysqli_fetch_assoc($result);
@@ -14,7 +15,7 @@ $resultData = mysqli_fetch_assoc($result);
 $name = $resultData['name'];
 $startDate = $resultData['start_date'];
 $endDate = $resultData['end_date'];
-$status = $resultData['status'];
+$status = $resultData['status_id'];
 
 $title = "Edit Course";
 $activePage = "Courses";
@@ -49,11 +50,15 @@ require_once("../common/header.php");
                     </div>
                     <div class="mb-3">
                         <label for="statusField" class="form-label">Status</label>
-                        <input id="statusField"
-                               type="text"
-                               name="status"
-                               value="<?php echo $status; ?>"
-                               class="form-control">
+                        <select name="status" id="statusField" class="form-select">
+                            <?php  while ($res = mysqli_fetch_assoc($statuses)) { ?>
+                                <option value="<?php echo $res['id']; ?>"
+                                    <?php echo ($res['id'] == $status) ? "selected" : ""; ?>
+                                >
+                                    <?php echo $res['name']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="mb-3 row justify-content-md-center">
                         <div class="mt-4 col-lg-3">

@@ -29,7 +29,9 @@ if (isset($_POST['update'])) {
         }
     } else {
         // Update the database table
-        $result = mysqli_query($mysqli, "UPDATE courses SET `name` = '$name',  `status` = '$status', `start_date` = '$startDate', `end_date` = '$endDate' WHERE `id` = $id");
+        $result = mysqli_query($mysqli, "UPDATE courses 
+                  SET `name` = '$name', `start_date` = '$startDate', `end_date` = '$endDate', `status_id` = '$status'
+                  WHERE `id` = $id");
 
         // Redirect to the main display page
         header("Location:index.php");

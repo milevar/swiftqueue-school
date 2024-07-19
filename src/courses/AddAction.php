@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
     } else {
         // Insert data into database
-        $result = mysqli_query($mysqli, "INSERT INTO courses (`name`, `status`, `start_date`, `end_date`) VALUES ('$name', '$status', '$startDate', '$endDate')");
+        $result = mysqli_query($mysqli, "INSERT INTO courses (`name`, `start_date`, `end_date`, `status_id`) VALUES ('$name', '$startDate', '$endDate', '$status')");
 
         // Redirect to the main display page
         header("Location:index.php");

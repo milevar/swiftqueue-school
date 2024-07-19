@@ -3,30 +3,27 @@
 require_once("../common/dbConnection.php");
 
 // Fetch data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM courses ORDER BY id DESC");
+$result = mysqli_query($mysqli, "SELECT c.id, c.name, c.start_date, c.end_date, s.name as status 
+FROM courses c JOIN statuses s on c.status_id = s.id
+ORDER BY c.id DESC");
+$statuses = mysqli_query($mysqli, "SELECT * FROM statuses ORDER BY id ASC");
+
 $title = "Courses";
 $activePage = "Courses";
 
 require_once("../common/header.php");
 ?>
 <div class="container-fluid">
-    <div class="d-flex mt-3 ps-0">
-        <div class="py-2 flex-grow-1">
-            <div class="dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    Filter by Status
-                </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Action</button></li>
-                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
-            </div>
+    <div class="row mt-3 ps-0 justify-content-between">
+        <div class="py-2 col-4 align-self-start">
+            <select name="status" class="form-select">
+                <option value="null">Filter by Status</option>
+                <?php  while ($res = mysqli_fetch_assoc($statuses)) { ?>
+                    <option value="<?php echo $res['id']; ?>"><?php echo $res['name']; ?></option>
+                <?php } ?>
+            </select>
         </div>
-        <div class="py-2 justify-content-md-end">
+        <div class="py-2 col-4 justify-content-end">
             <a href="add.php" class='btn btn-primary me-md-2' role='button'>Add Course</a>
         </div>
     </div>

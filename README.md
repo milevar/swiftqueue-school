@@ -11,7 +11,7 @@ Web Application to manage a school
 
 ### UI
 
-- [ ] Update Status Combo box
+- [X] Update Status Combo box in CRUD courses
 - [ ] Filter in courses
 - [X] Use Boostrap
 - [X] Calendar
