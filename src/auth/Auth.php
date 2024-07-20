@@ -34,4 +34,16 @@ class Auth
     public function getLoggedInUsername() {
         return $_SESSION['LoggedIn']['name'];
     }
+
+    /**
+     * Prevent session hijacking as it regenerates the user's session Id
+     * that is stored on the server and as a cookie in the browser
+     */
+    public function startSession($userId, $name, $email) {
+        session_regenerate_id();
+        $_SESSION['LoggedIn'] = [];
+        $_SESSION['LoggedIn']['id'] = $userId;
+        $_SESSION['LoggedIn']['name'] = $name;
+        $_SESSION['LoggedIn']['email'] = $email;
+    }
 }

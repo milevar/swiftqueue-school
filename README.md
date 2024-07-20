@@ -23,6 +23,7 @@ Web Application to manage a school
 - [X] Create database schema
 - [X] Create initial data
 - [X] Hash user passwd
+- [ ] Email field UNIQUE
 - [X] Start date and end date, update data type
 - [X] Status table
 

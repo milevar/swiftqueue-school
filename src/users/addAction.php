@@ -33,6 +33,10 @@ if (isset($_POST['submit'])) {
         // Insert data into database
         $result = mysqli_query($mysqli, "INSERT INTO users (`name`, `email`, `password`) VALUES ('$name', '$email', '$password')");
 
+        $_SESSION['message'] = [
+            "type" => "alert-success",
+            "text" => "User added successfully."
+        ];
         // Redirect to the main display page
         header("Location:index.php");
     }

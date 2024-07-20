@@ -10,5 +10,9 @@ $id = $_GET['id'];
 // Delete row from the database table
 $result = mysqli_query($mysqli, "DELETE FROM users WHERE id = $id");
 
+$_SESSION['message'] = [
+    "type" => "alert-success",
+    "text" => "User deleted successfully."
+];
 // Redirect to the main display page (index.php in our case)
 header("Location:index.php");

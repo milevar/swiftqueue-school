@@ -21,18 +21,16 @@ if (count($_POST) > 0) {
 
             if (password_verify($password, $hashedPassword)) {
                 $isSuccess = 1;
-                // Prevent session hijacking as it regenerates the user's session ID that is stored on the server and as a cookie in the browser
-                session_regenerate_id();
-                $_SESSION['LoggedIn'] = [];
-                $_SESSION['LoggedIn']['id'] = $row["id"];
-                $_SESSION['LoggedIn']['email'] = $row["email"];
-                $_SESSION['LoggedIn']['name'] = $row["name"];
+                $auth->startSession($row["id"], $row["name"], $row["email"]);
             }
         }
     }
 
     if ($isSuccess == 0) {
-        $_SESSION['message'] = "Invalid Username or Password!";
+        $_SESSION['message'] = [
+            "type" => "alert-danger",
+            "text" => "The email address or password is incorrect."
+        ];
         header("Location: /auth/login.php");
     } else {
         header("Location: /courses");
