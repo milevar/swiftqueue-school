@@ -28,7 +28,7 @@ Web Application to manage a school
 ### Extra
 
 - [ ] Authentication
-- [] Create Login Page
+- [X] Create Login Page
 - [ ] Soft Delete ???
 - [ ] ORM ???
 - [ ] Unit Test
