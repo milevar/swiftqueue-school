@@ -2,9 +2,15 @@
 // Include the database connection file
 require_once("../common/dbConnection.php");
 
+$status = mysqli_real_escape_string($mysqli, $_GET['status']);
+$hasStatus = $status && is_numeric($status);
+if (!$hasStatus) $status = 0;
+$where = $hasStatus ? "WHERE s.id = $status" : "";
+
 // Fetch data in descending order (lastest entry first)
 $result = mysqli_query($mysqli, "SELECT c.id, c.name, c.start_date, c.end_date, s.name as status 
 FROM courses c JOIN statuses s on c.status_id = s.id
+$where
 ORDER BY c.id DESC");
 $statuses = mysqli_query($mysqli, "SELECT * FROM statuses ORDER BY id ASC");
 
@@ -13,17 +19,18 @@ $activePage = "Courses";
 
 require_once("../common/header.php");
 ?>
+
 <div class="container-fluid">
-    <div class="row mt-3 ps-0 justify-content-between">
-        <div class="py-2 col-4 align-self-start">
-            <select name="status" class="form-select">
-                <option value="null">Filter by Status</option>
-                <?php  while ($res = mysqli_fetch_assoc($statuses)) { ?>
+    <div class="d-flex mt-3 ps-0 justify-content-between">
+        <div class="d-flex py-2 col-4">
+            <select id="statusFilter" class="form-select">
+                <option value="0">All</option>
+                <?php while ($res = mysqli_fetch_assoc($statuses)) { ?>
                     <option value="<?php echo $res['id']; ?>"><?php echo $res['name']; ?></option>
                 <?php } ?>
             </select>
         </div>
-        <div class="py-2 col-4 justify-content-end">
+        <div class="d-flex py-2 col-4 justify-content-end">
             <a href="add.php" class='btn btn-primary me-md-2' role='button'>Add Course</a>
         </div>
     </div>
@@ -58,22 +65,36 @@ require_once("../common/header.php");
         </tbody>
     </table>
 
-    <nav aria-label="...">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">2</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+<!--    <nav aria-label="...">-->
+<!--        <ul class="pagination">-->
+<!--            <li class="page-item disabled">-->
+<!--                <span class="page-link">Previous</span>-->
+<!--            </li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--            <li class="page-item active" aria-current="page">-->
+<!--                <span class="page-link">2</span>-->
+<!--            </li>-->
+<!--            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--            <li class="page-item">-->
+<!--                <a class="page-link" href="#">Next</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
 </div>
+<script>
+    $(function () {
+        const statusFilter = $('#statusFilter');
+        statusFilter.val("<?= $status ?>");
+        statusFilter.on('change', function () {
+            const id = statusFilter.val();
+            if (id !== '0') {
+                window.location.href = "/courses/?status=" + id;
+            } else {
+                window.location.href = "/courses/";
+            }
+        });
+    });
+</script>
 <?php
 require_once("../common/footer.php");
 ?>

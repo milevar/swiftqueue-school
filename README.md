@@ -12,7 +12,7 @@ Web Application to manage a school
 ### UI
 
 - [X] Update Status Combo box in CRUD courses
-- [ ] Filter in courses
+- [X] Filter in courses
 - [X] Use Boostrap
 - [X] Calendar
 - [ ] Form Validations
@@ -28,6 +28,7 @@ Web Application to manage a school
 ### Extra
 
 - [ ] Authentication
+- [] Create Login Page
 - [ ] Soft Delete ???
 - [ ] ORM ???
 - [ ] Unit Test

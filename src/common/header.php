@@ -6,6 +6,8 @@
           crossorigin="anonymous"
     >
     <link rel="stylesheet" href="../style/app.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -20,13 +22,15 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($activePage == 'Home') ? "active" : ""; ?>" aria-current="page" href="#">Home</a>
+                        <a class="nav-link <?php echo ($activePage == 'Home') ? "active" : ""; ?>" aria-current="page"
+                           href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($activePage == 'Courses') ? "active" : ""; ?>" href="../courses/">Courses</a>
+                        <a class="nav-link <?php echo ($activePage == 'Courses') ? "active" : ""; ?>" href="/courses">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($activePage == 'Users') ? "active" : ""; ?>" href="../users/">Users</a>
+                        <a class="nav-link <?php echo ($activePage == 'Users') ? "active" : ""; ?>"
+                           href="/users">Users</a>
                     </li>
                 </ul>
             </div>
@@ -35,22 +39,22 @@
 
     <div class="d-grid mt-3">
         <h3 class="ps-2 text-body-emphasis"><?php echo $title; ?></h3>
-        <?php if($title != "Courses" && $title != "Users") { ?>
-        <div class="row ps-2">
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="../<?php echo strtolower($activePage); ?>"><?php echo $activePage; ?></a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page"><?php echo $title; ?></li>
-                </ol>
-            </nav>
-        </div>
+        <?php if ($title != "Courses" && $title != "Users") { ?>
+            <div class="row ps-2">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="../<?php echo strtolower($activePage); ?>"><?php echo $activePage; ?></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page"><?php echo $title; ?></li>
+                    </ol>
+                </nav>
+            </div>
         <?php } ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous">
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous">
     </script>
 
