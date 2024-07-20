@@ -20,9 +20,9 @@ Web Application to manage a school
 - [X] Update manage dates in CRUD courses
 
 ### DB
-- [x] Create database schema
-- [x] Create initial data
-- [ ] Hash user passwd
+- [X] Create database schema
+- [X] Create initial data
+- [X] Hash user passwd
 - [X] Start date and end date, update data type
 - [X] Status table
 

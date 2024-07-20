@@ -10,6 +10,7 @@ if (isset($_POST['update'])) {
     $name = mysqli_real_escape_string($mysqli, $_POST['name']);
     $email = mysqli_real_escape_string($mysqli, $_POST['email']);
     $password = mysqli_real_escape_string($mysqli, $_POST['password']);
+    $password = password_hash($password, PASSWORD_BCRYPT);
 
     // Check for empty fields
     if (empty($name) || empty($email) || empty($password)) {

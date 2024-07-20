@@ -1,5 +1,5 @@
 <?php
-// Include the database connection file
+require_once("Auth.php");
 require_once("../common/dbConnection.php");
 
 if (count($_POST) > 0) {
@@ -19,9 +19,8 @@ if (count($_POST) > 0) {
         if (!empty($row)) {
             $hashedPassword = $row["password"];
 
-            if (password_verify($_POST["password"], $hashedPassword)) {
+            if (password_verify($password, $hashedPassword)) {
                 $isSuccess = 1;
-                session_start();
                 // Prevent session hijacking as it regenerates the user's session ID that is stored on the server and as a cookie in the browser
                 session_regenerate_id();
                 $_SESSION['LoggedIn'] = [];
@@ -33,8 +32,8 @@ if (count($_POST) > 0) {
     }
 
     if ($isSuccess == 0) {
-        $message = "Invalid Username or Password!";
-        echo $message;
+        $_SESSION['message'] = "Invalid Username or Password!";
+        header("Location: /auth/login.php");
     } else {
         header("Location: /courses");
     }
