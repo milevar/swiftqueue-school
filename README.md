@@ -16,7 +16,7 @@ Web Application to manage a school
 - [X] Use Boostrap
 - [X] Calendar
 - [ ] Form Validations
-- [ ] Homepage
+- [ ] Improve Nav bar
 - [X] Update manage dates in CRUD courses
 
 ### DB
@@ -28,7 +28,7 @@ Web Application to manage a school
 
 ### Extra
 
-- [ ] Authentication
+- [X] Authentication
 - [X] Create Login Page
 - [ ] Soft Delete ???
 - [ ] ORM ???

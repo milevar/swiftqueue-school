@@ -1,7 +1,7 @@
 insert into school.users (name, email, password)
 values
-    ('Melissa','melissa@email.com', '123456'),
-    ('Milena', 'mile@email.com', 'secret');
+    ('Melissa','melissa@swiftqueue-school.com', '$2a$10$0FHEQ5/cplO3eEKillHvh.y009Wsf4WCKvQHsZntLamTUToIBe.fG'),
+    ('Milena', 'milena@swiftqueue-school.com', '$2a$10$0FHEQ5/cplO3eEKillHvh.y009Wsf4WCKvQHsZntLamTUToIBe.fG');
 
 insert into school.statuses (id, name)
 values

@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-xl-5 m-auto pb-5 px-5 border border-top-0 border-light-subtle bg-body-tertiary">
-                <form action="#" method="post" name="login">
+                <form action="loginAction.php" method="post" name="login">
                     <div class="mb-3">
                         <label for="emailField" class="form-label">Email</label>
                         <input id="emailField" type="email" name="email" class="form-control">

@@ -1,2 +1,4 @@
 <?php
-echo 'Mile PHP 7.3';
+require_once("auth/Auth.php");
+$auth->checkSession();
+header('Location: /courses');

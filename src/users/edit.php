@@ -1,5 +1,7 @@
 <?php
-// Include the database connection file
+require_once("../auth/Auth.php");
+$auth->checkSession();
+
 require_once("../common/dbConnection.php");
 
 // Get id from URL parameter

@@ -1,4 +1,7 @@
 <?php
+require_once("../auth/Auth.php");
+$auth->checkSession();
+
 $title = "Add User";
 $activePage = "Users";
 require_once("../common/header.php");

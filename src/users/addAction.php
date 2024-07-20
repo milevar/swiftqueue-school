@@ -1,11 +1,7 @@
-<html>
-<head>
-    <title>Add User</title>
-</head>
-
-<body>
 <?php
-// Include the database connection file
+require_once("../auth/Auth.php");
+$auth->checkSession();
+
 require_once("../common/dbConnection.php");
 
 if (isset($_POST['submit'])) {
@@ -40,6 +36,3 @@ if (isset($_POST['submit'])) {
         header("Location:index.php");
     }
 }
-?>
-</body>
-</html>

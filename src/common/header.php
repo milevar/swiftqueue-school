@@ -32,6 +32,12 @@
                         <a class="nav-link <?php echo ($activePage == 'Users') ? "active" : ""; ?>"
                            href="/users">Users</a>
                     </li>
+                    <?php
+                    if ($auth->isLoggedIn()) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/auth/logoutAction.php\">Logout</a></li>";
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/auth/logoutAction.php\">Hi, ".$auth->getLoggedInUsername()."</a></li>";
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

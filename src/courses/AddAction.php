@@ -1,4 +1,7 @@
 <?php
+require_once("../auth/Auth.php");
+$auth->checkSession();
+
 require_once("../common/dbConnection.php");
 
 if (isset($_POST['submit'])) {

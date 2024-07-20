@@ -1,4 +1,7 @@
 <?php
+require_once("../auth/Auth.php");
+$auth->checkSession();
+
 require_once("../common/dbConnection.php");
 
 $result = mysqli_query($mysqli, "SELECT * FROM statuses ORDER BY id ASC");
