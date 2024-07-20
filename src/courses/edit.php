@@ -26,24 +26,24 @@ require_once("../common/header.php");
     <div class="container">
         <div class="row">
             <div class="col col-lg-6">
-                <form name="edit" method="post" action="editAction.php">
+                <form id="editForm" name="edit" method="post" action="editAction.php">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <div class="mb-3">
-                        <label for="nameField" class="form-label">Name</label>
-                        <input id="nameField" type="text" name="name" value="<?php echo $name; ?>" class="form-control">
+                        <label for="name" class="form-label">Name</label>
+                        <input id="name" type="text" name="name" value="<?php echo $name; ?>" class="form-control">
                     </div>
                     <div class="mb-3 row">
                         <div class="mb-3 col-lg-6">
-                            <label for="starDateField" class="form-label">Start Date</label>
-                            <input id="starDateField"
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input id="start_date"
                                    type="datetime-local"
                                    name="start_date"
                                    value="<?php echo $startDate; ?>"
                                    class="form-control">
                         </div>
                         <div class="mb-3 col-lg-6">
-                            <label for="endDateField" class="form-label">End Date</label>
-                            <input id="endDateField"
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input id="end_date"
                                    type="datetime-local"
                                    name="end_date"
                                    value="<?php echo $endDate; ?>"
@@ -51,8 +51,9 @@ require_once("../common/header.php");
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="statusField" class="form-label">Status</label>
-                        <select name="status" id="statusField" class="form-select">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" name="status" class="form-select">
+                            <option value=""></option>
                             <?php  while ($res = mysqli_fetch_assoc($statuses)) { ?>
                                 <option value="<?php echo $res['id']; ?>"
                                     <?php echo ($res['id'] == $status) ? "selected" : ""; ?>
@@ -71,6 +72,35 @@ require_once("../common/header.php");
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            $("#editForm").validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    start_date: {
+                        required: true
+                    },
+                    end_date: {
+                        required: true
+                    },
+                    status: {
+                        required: true
+                    },
+                },
+                messages: {
+                    name: "Please enter Course Name",
+                    start_date: "Please choose the Start Date",
+                    end_date: " Please choose the End Date",
+                    status: " Please choose one Status",
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 <?php
 require_once("../common/footer.php");
 ?>

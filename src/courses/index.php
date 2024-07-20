@@ -20,6 +20,7 @@ $title = "Courses";
 $activePage = "Courses";
 
 require_once("../common/header.php");
+require_once("../common/message.php");
 ?>
 
 <div class="container-fluid">

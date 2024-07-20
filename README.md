@@ -15,7 +15,7 @@ Web Application to manage a school
 - [X] Filter in courses
 - [X] Use Boostrap
 - [X] Calendar
-- [ ] Form Validations
+- [X] Form Validations
 - [ ] Improve Nav bar
 - [X] Update manage dates in CRUD courses
 
@@ -23,7 +23,7 @@ Web Application to manage a school
 - [X] Create database schema
 - [X] Create initial data
 - [X] Hash user passwd
-- [ ] Email field UNIQUE
+- [X] Email field UNIQUE
 - [X] Start date and end date, update data type
 - [X] Status table
 
@@ -31,6 +31,6 @@ Web Application to manage a school
 
 - [X] Authentication
 - [X] Create Login Page
-- [ ] Soft Delete ???
-- [ ] ORM ???
+- [ ] Soft Delete
+- [ ] ORM
 - [ ] Unit Test
