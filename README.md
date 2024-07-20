@@ -17,12 +17,13 @@ Web Application to manage a school
 - [X] Calendar
 - [ ] Form Validations
 - [ ] Homepage
+- [X] Update manage dates in CRUD courses
 
 ### DB
 - [x] Create database schema
 - [x] Create initial data
 - [ ] Hash user passwd
-- [ ] start date and end date, update data type
+- [X] Start date and end date, update data type
 - [X] Status table
 
 ### Extra

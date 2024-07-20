@@ -51,8 +51,8 @@ require_once("../common/header.php");
         while ($res = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $res['name'] . "</td>";
-            echo "<td>" . $res['start_date'] . "</td>";
-            echo "<td>" . $res['end_date'] . "</td>";
+            echo "<td>" . date_format(date_create($res['start_date']),"d/m/Y H:i") . "</td>";
+            echo "<td>" . date_format(date_create($res['end_date']),"d/m/Y H:i") . "</td>";
             echo "<td>" . $res['status'] . "</td>";
             echo "<td class='text-end'>
             <a href=\"edit.php?id=$res[id]\" class='btn btn-secondary btn-sm' role='button'>Edit</a>

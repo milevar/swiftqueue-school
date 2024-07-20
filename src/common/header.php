@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg shadow-sm p-3 mb-5 bg-body-tertiary rounded">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Swiftqueue School</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
