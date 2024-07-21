@@ -24,7 +24,11 @@ require_once("../common/message.php");
 ?>
 
 <div class="container-fluid">
-    <div class="d-flex mt-3 ps-0 justify-content-between">
+
+    <div class="flex-row mt-3">
+        <div class="p-2">Filter by Status</div>
+    </div>
+    <div class="d-flex ps-0 justify-content-between">
         <div class="d-flex py-2 col-4">
             <select id="statusFilter" class="form-select">
                 <option value="0">All</option>

@@ -21,7 +21,11 @@
 <div class="container p-5">
     <div class="row">
         <div class="col-xl-5 m-auto pt-5 px-5 bg-body-tertiary border border-bottom-0 border-light-subtle">
-            <h3>Login into Swiftqueue School!</h3>
+            <h3>
+                <small class="text-body-secondary">Login into</small>
+                Swiftqueue
+                <small class="color-title-login text-body-secondary">School</small>!
+            </h3>
             <p class="lead fs-6 mb-5">Nice to see you! Please log in with your account.</p>
         </div>
     </div>

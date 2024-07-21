@@ -15,7 +15,10 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg shadow-sm p-3 mb-5 bg-body-tertiary rounded">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Swiftqueue School</a>
+            <a class="navbar-brand" href="/">
+                <span class="fs-4 fw-medium">Swiftqueue</span>
+                <small class="color-title text-body-secondary">School</small>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -30,14 +33,16 @@
                         <a class="nav-link <?php echo ($activePage == 'Users') ? "active" : ""; ?>"
                            href="/users">Users</a>
                     </li>
-                    <?php
-                    if ($auth->isLoggedIn()) {
-                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/auth/logoutAction.php\">Logout</a></li>";
-                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/auth/logoutAction.php\">Hi, " . $auth->getLoggedInUsername() . "</a></li>";
-                    }
-                    ?>
                 </ul>
             </div>
+            <?php if ($auth->isLoggedIn()) {  ?>
+                <div class="d-flex justify-content-end">
+                    <div class="p-2">Hi, <?= $auth->getLoggedInUsername(); ?></div>
+                    <div class="p-2">
+                        <a class="nav-link" href="/auth/logoutAction.php">Logout</a>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </nav>
 
