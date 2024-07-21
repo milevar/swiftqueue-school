@@ -25,13 +25,13 @@ require_once("../common/header.php");
         <div class="row">
             <div class="col col-lg-6">
                 <form id="editForm" method="post" action="editAction.php">
-                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input id="name"
                                type="text"
                                name="name"
-                               value="<?php echo $name; ?>"
+                               value="<?= $name ?>"
                                class="form-control">
                     </div>
                     <div class="mb-3">
@@ -39,7 +39,7 @@ require_once("../common/header.php");
                         <input id="email"
                                type="email"
                                name="email"
-                               value="<?php echo $email; ?>"
+                               value="<?= $email ?>"
                                class="form-control">
                     </div>
                     <div class="mb-3">

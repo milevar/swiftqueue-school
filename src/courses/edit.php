@@ -26,11 +26,11 @@ require_once("../common/header.php");
     <div class="container">
         <div class="row">
             <div class="col col-lg-6">
-                <form id="editForm" name="edit" method="post" action="editAction.php">
-                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <form id="editForm" name="edit" method="post" action="editAction.php" autocomplete="off">
+                    <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input id="name" type="text" name="name" value="<?php echo $name; ?>" class="form-control">
+                        <input id="name" type="text" name="name" value="<?= $name ?>" class="form-control">
                     </div>
                     <div class="mb-3 row">
                         <div class="mb-3 col-lg-6">
@@ -38,7 +38,7 @@ require_once("../common/header.php");
                             <input id="start_date"
                                    type="datetime-local"
                                    name="start_date"
-                                   value="<?php echo $startDate; ?>"
+                                   value="<?= $startDate ?>"
                                    class="form-control">
                         </div>
                         <div class="mb-3 col-lg-6">
@@ -46,7 +46,7 @@ require_once("../common/header.php");
                             <input id="end_date"
                                    type="datetime-local"
                                    name="end_date"
-                                   value="<?php echo $endDate; ?>"
+                                   value="<?= $endDate ?>"
                                    class="form-control">
                         </div>
                     </div>
@@ -55,10 +55,9 @@ require_once("../common/header.php");
                         <select id="status" name="status" class="form-select">
                             <option value=""></option>
                             <?php  while ($res = mysqli_fetch_assoc($statuses)) { ?>
-                                <option value="<?php echo $res['id']; ?>"
-                                    <?php echo ($res['id'] == $status) ? "selected" : ""; ?>
-                                >
-                                    <?php echo $res['name']; ?>
+                                <option value="<?= $res['id'] ?>"
+                                    <?= ($res['id'] == $status) ? "selected" : "" ?>>
+                                    <?= $res['name'] ?>
                                 </option>
                             <?php } ?>
                         </select>

@@ -31,6 +31,7 @@ Web Application to manage a school
 
 - [X] Authentication
 - [X] Create Login Page
+- [X] Add Pagination
 - [ ] Soft Delete
 - [ ] ORM
 - [ ] Unit Test

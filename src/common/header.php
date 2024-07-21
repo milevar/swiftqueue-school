@@ -1,4 +1,4 @@
-<html>
+<html lang="en-US">
 <head>
     <title> <?php echo $title; ?> </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
